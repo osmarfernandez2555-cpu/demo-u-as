@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lumi Nails & Brows · Turnos online</title>
+<meta name="description" content="Reservá tu turno de uñas, cejas y pies online.">
+<meta name="theme-color" content="#fbf5f0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#fbf5f0;--surface:#ffffff;--surface-2:#f6ebe3;
+  --ink:#2b1620;--ink-2:#56394a;--muted:#7a5f6a;
+  --accent:#a3405f;--accent-ink:#ffffff;--accent-soft:rgba(163,64,95,.09);
+  --line:#ecdcd2;--line-strong:rgba(163,64,95,.38);
+  --danger:#b3261e;--ok:#2d7a4d;--warn:#94640a;
+  --shadow:0 24px 50px -28px rgba(90,30,55,.35);
+  --hero-grad:linear-gradient(135deg,#f0cfd3,#e6c3b3 50%,#c3889b);
+  --font-display:'Fraunces',Georgia,serif;--font-body:'DM Sans',system-ui,sans-serif;
+  --radius:16px;
+  --radius-sm:10px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --gutter:20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body.lock{overflow:hidden}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+img{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+button:disabled{cursor:not-allowed}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+input{caret-color:var(--accent)}
+html{scrollbar-color:var(--line-strong) transparent;scrollbar-width:thin}
+::-webkit-scrollbar{width:10px;height:8px}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;border:2px solid var(--bg)}
+::-webkit-scrollbar-track{background:transparent}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.num{font-variant-numeric:tabular-nums lining-nums}
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(2rem,6vw,3rem);margin-bottom:.5rem}
+.lead{color:var(--ink-2);max-width:56ch}
+svg.i{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:50px;padding:0 1.5rem;border-radius:999px;font-weight:500;letter-spacing:.01em;text-decoration:none;transition:transform .25s var(--ease),background-color .25s var(--ease),box-shadow .25s var(--ease),opacity .2s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 10px 24px -12px var(--accent)}
+.btn-primary:hover{box-shadow:0 14px 30px -12px var(--accent);transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.45;box-shadow:none;transform:none}
+.btn-wa{background:#1fa855;color:#fff;box-shadow:0 10px 24px -12px #1fa855}
+.btn-wa:hover{background:#1a964b}
+.btn-ghost{border:1px solid var(--line-strong);color:var(--ink)}
+.btn-ghost:hover{background:var(--accent-soft)}
+.btn-sm{min-height:40px;padding:0 1rem;font-size:.9rem}
+.btn-danger{color:var(--danger);border:1px solid color-mix(in srgb,var(--danger) 45%,transparent)}
+.btn-danger:hover{background:color-mix(in srgb,var(--danger) 10%,transparent)}
+.btn svg.i{width:18px;height:18px}
+.btn svg.fill{fill:currentColor;stroke:none}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;min-width:0}
+.mono{width:38px;height:38px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;font-family:var(--font-display);font-size:1.25rem;color:var(--accent);flex:none}
+.brand b{font-family:var(--font-display);font-weight:500;font-size:1.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top-actions{display:flex;align-items:center;gap:6px}
+.icon-btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--ink-2);transition:background-color .2s,color .2s}
+.icon-btn:hover{background:var(--accent-soft);color:var(--accent)}
+.top .btn{min-height:40px;padding:0 1.1rem;font-size:.92rem}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(12px,3vw,28px) 0 0}
+.hero-fig{margin:0}
+.hero-photo{position:relative;height:min(76svh,640px);min-height:440px;border-radius:calc(var(--radius) + 8px);overflow:hidden;background:var(--hero-grad);isolation:isolate}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;animation:reveal 1.6s var(--ease) both}
+@keyframes reveal{from{transform:scale(1.08);filter:blur(10px) saturate(.6)}to{transform:none;filter:none}}
+.hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,6,6,.15) 0%,rgba(10,6,6,.05) 35%,rgba(10,6,6,.78) 100%)}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;padding:clamp(24px,5vw,56px);color:#fbf4ec}
+.hero-copy h1{font-size:clamp(2.9rem,10vw,5.6rem);line-height:.98;letter-spacing:-.02em;max-width:12ch}
+.hero-copy p{margin:.9rem 0 1.6rem;font-size:clamp(1rem,2.4vw,1.15rem);max-width:40ch;color:rgba(251,244,236,.88)}
+.hero-copy .btn-primary{box-shadow:0 14px 34px -10px rgba(0,0,0,.6)}
+.hero-cap{display:flex;flex-direction:column;align-items:center;gap:.3rem;padding:.9rem 0 0;text-align:center}
+.photo-note{font-size:.72rem;letter-spacing:.06em;color:var(--muted);display:inline-flex;align-items:center;gap:.4rem}
+.photo-note svg.i{width:14px;height:14px}
+.hero-cap .cap{font-family:var(--font-display);font-style:italic;font-size:clamp(1.25rem,3.6vw,1.6rem);color:var(--accent)}
+
+/* ---------- sections ---------- */
+section.block{padding:clamp(56px,9vw,96px) 0 0}
+.sec-head{margin-bottom:clamp(24px,4vw,40px)}
+
+/* guide */
+.guide{list-style:none;display:grid;gap:0;border-top:1px solid var(--line)}
+.guide li{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
+.guide .n{font-family:var(--font-display);font-size:2.6rem;line-height:.9;color:var(--accent)}
+.guide h3{font-size:1.45rem;margin-bottom:.25rem}
+.guide p{color:var(--ink-2);font-size:.98rem}
+@media (min-width:820px){
+  .guide{grid-template-columns:repeat(3,1fr);border-top:0}
+  .guide li{grid-template-columns:1fr;border-bottom:0;border-top:1px solid var(--line-strong);padding:22px 28px 0 0}
+  .guide .n{font-size:3.4rem}
+}
+
+/* services */
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{min-height:40px;padding:0 1.1rem;border-radius:999px;border:1px solid var(--line-strong);font-size:.92rem;text-decoration:none;display:inline-flex;align-items:center;transition:background-color .2s}
+.chip:hover{background:var(--accent-soft)}
+.cat{margin-bottom:36px}
+.cat h3{font-size:1.75rem;margin-bottom:12px;display:flex;align-items:baseline;gap:.6rem}
+.cat h3 small{font-family:var(--font-body);font-size:.85rem;color:var(--muted);font-weight:400;letter-spacing:0}
+.svc-list{list-style:none;display:grid;gap:10px}
+@media (min-width:820px){.svc-list{grid-template-columns:1fr 1fr}}
+.svc{width:100%;text-align:left;display:grid;grid-template-columns:1fr auto;gap:6px 18px;padding:18px 20px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line);transition:border-color .25s,background-color .25s,transform .25s var(--ease);position:relative}
+.svc:hover{border-color:var(--line-strong)}
+.svc:active{transform:scale(.99)}
+.svc[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,var(--surface))}
+.svc .nm{font-weight:500;font-size:1.06rem;display:flex;align-items:center;gap:.5rem}
+.svc .ds{grid-column:1/2;color:var(--ink-2);font-size:.92rem;line-height:1.45}
+.svc .pr{grid-row:1/3;grid-column:2;text-align:right;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:2px}
+.svc .pr b{font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--accent);white-space:nowrap}
+.svc .pr span{font-size:.82rem;color:var(--muted);display:inline-flex;gap:.3rem;align-items:center;white-space:nowrap}
+.svc .pr span svg.i{width:14px;height:14px}
+.svc .tick{width:20px;height:20px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:none;place-items:center}
+.svc .tick svg.i{width:13px;height:13px;stroke-width:2.4}
+.svc[aria-pressed="true"] .tick{display:grid}
+
+/* booking */
+.book{background:var(--surface);border:1px solid var(--line);border-radius:calc(var(--radius) + 6px);padding:clamp(20px,4vw,40px);box-shadow:var(--shadow)}
+.pick{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-radius:var(--radius-sm);background:var(--surface-2);margin-bottom:28px}
+.pick b{font-weight:500}
+.pick small{color:var(--muted);display:block;font-size:.88rem}
+.pick a{font-size:.92rem;color:var(--accent);font-weight:500}
+.empty{text-align:center;padding:28px 8px;color:var(--ink-2)}
+.empty svg.i{width:34px;height:34px;color:var(--accent);margin:0 auto 12px;stroke-width:1.3}
+.empty p{max-width:36ch;margin:0 auto 18px}
+.step-lbl{font-weight:500;margin:0 0 12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.step-lbl span{color:var(--muted);font-weight:400;font-size:.88rem}
+.days{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 12px;margin:0 -2px 18px;scrollbar-width:thin}
+.day{scroll-snap-align:start;flex:none;width:68px;padding:10px 0;border-radius:14px;border:1px solid var(--line);background:var(--bg);display:flex;flex-direction:column;align-items:center;gap:2px;transition:border-color .2s,background-color .2s,color .2s}
+.day small{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.day b{font-family:var(--font-display);font-size:1.6rem;font-weight:500;line-height:1}
+.day:hover:not(:disabled){border-color:var(--line-strong)}
+.day[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.day[aria-pressed="true"] small{color:inherit;opacity:.85}
+.day:disabled{opacity:.38}
+.day .full{font-size:.64rem;color:var(--muted);text-transform:none;letter-spacing:0}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;margin-bottom:12px}
+.slot{min-height:46px;border-radius:12px;border:1px solid var(--line);background:var(--bg);font-weight:500;transition:border-color .2s,background-color .2s,color .2s}
+.slot:hover:not(:disabled):not([aria-pressed="true"]){border-color:var(--accent);color:var(--accent)}
+.slot[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.slot:disabled{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px;opacity:.55;background:transparent;border-style:dashed}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--muted);margin-bottom:26px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;border:1px solid var(--line-strong);margin-right:6px;vertical-align:-1px}
+.legend i.off{border-style:dashed;opacity:.6}
+.legend i.on{background:var(--accent);border-color:var(--accent)}
+.form{display:grid;gap:14px}
+@media (min-width:700px){.form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}}
+.form .row{display:grid;gap:14px}
+.field label{display:block;font-size:.9rem;font-weight:500;margin-bottom:6px}
+.field input,.adm input,.adm select,.adm textarea{width:100%;min-height:50px;padding:0 16px;border-radius:12px;border:1px solid var(--line-strong);background:var(--bg);transition:border-color .2s,box-shadow .2s}
+.field input::placeholder{color:var(--muted)}
+.field input:focus,.adm input:focus,.adm select:focus,.adm textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.field .help{font-size:.8rem;color:var(--muted);margin-top:5px}
+.field .err{font-size:.84rem;color:var(--danger);margin-top:5px;display:none}
+.field.invalid input{border-color:var(--danger)}
+.field.invalid .err{display:block}
+.form .btn{width:100%;margin-top:6px}
+.form .fine{font-size:.82rem;color:var(--muted);text-align:center}
+
+/* confirmation */
+.done{text-align:center;animation:pop .6s var(--ease) both}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.done .seal{width:64px;height:64px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;margin:0 auto 16px}
+.done .seal svg.i{width:30px;height:30px;stroke-width:2}
+.done h3{font-size:clamp(1.8rem,5vw,2.4rem);margin-bottom:.4rem}
+.done > p{color:var(--ink-2);max-width:46ch;margin:0 auto}
+.sum{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;text-align:left;max-width:420px;margin:22px auto;padding:18px 20px;border-radius:var(--radius);background:var(--surface-2)}
+.sum dt{color:var(--muted);font-size:.9rem}
+.sum dd{font-weight:500}
+.msg{max-width:440px;margin:0 auto 22px;text-align:left;background:color-mix(in srgb,#1fa855 9%,var(--surface));border:1px solid color-mix(in srgb,#1fa855 30%,transparent);border-radius:16px 16px 4px 16px;padding:14px 16px;font-size:.92rem;white-space:pre-line;color:var(--ink)}
+.msg-lbl{font-size:.82rem;color:var(--muted);margin-bottom:8px}
+.done .acts{display:flex;flex-direction:column;gap:10px;align-items:center}
+.done .acts .btn{width:100%;max-width:440px}
+
+/* info */
+.info{display:grid;gap:clamp(28px,5vw,64px)}
+@media (min-width:820px){.info{grid-template-columns:1.1fr 1fr}}
+.hours{list-style:none;border-top:1px solid var(--line)}
+.hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
+.hours li.today{color:var(--accent);font-weight:500}
+.hours li .closed{color:var(--muted)}
+.contact{display:grid;gap:14px;align-content:start}
+.contact a.line{display:flex;gap:12px;align-items:center;text-decoration:none;padding:6px 0;color:var(--ink-2)}
+.contact a.line:hover{color:var(--accent)}
+.contact a.line svg.i{color:var(--accent)}
+
+footer{margin-top:clamp(64px,10vw,110px);border-top:1px solid var(--line);padding:28px 0 calc(28px + env(safe-area-inset-bottom));font-size:.88rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer button{color:var(--ink-2);text-decoration:underline;text-underline-offset:.22em;min-height:44px}
+
+/* ---------- dialog ---------- */
+dialog{border:0;padding:0;background:transparent;color:var(--ink);margin:auto;max-width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(8,5,5,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.dlg{width:min(380px,100%);background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.dlg .mono{margin-bottom:16px}
+.dlg h2{font-size:1.9rem}
+.dlg p{color:var(--ink-2);font-size:.94rem;margin-bottom:18px}
+.dlg .acts{display:flex;gap:10px;margin-top:18px}
+.dlg .acts .btn{flex:1}
+
+/* ---------- toast ---------- */
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:999px;font-size:.92rem;z-index:80;transition:opacity .3s,transform .4s var(--ease);max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- admin ---------- */
+.adm{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;animation:pop .4s var(--ease) both}
+.adm[hidden]{display:none}
+.adm-top{position:sticky;top:0;z-index:2;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.adm-top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.adm-top h2{font-size:1.4rem;margin:0}
+.adm-top h2 small{display:block;font-family:var(--font-body);font-size:.78rem;color:var(--muted);font-weight:400;letter-spacing:0}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding:10px 0 0;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{min-height:44px;padding:0 1rem;border-bottom:2px solid transparent;color:var(--muted);white-space:nowrap;font-weight:500;transition:color .2s,border-color .2s}
+.tab[aria-selected="true"]{color:var(--ink);border-color:var(--accent)}
+.tab .badge{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:var(--accent);color:var(--accent-ink);font-size:.72rem;margin-left:6px}
+.adm-body{padding-top:28px;padding-bottom:80px}
+.adm h3{font-size:1.5rem;margin:26px 0 10px}
+.adm h3:first-child{margin-top:0}
+.adm .note{color:var(--ink-2);font-size:.92rem;margin-bottom:18px;max-width:60ch}
+.stats{display:flex;gap:10px 28px;flex-wrap:wrap;margin-bottom:8px;color:var(--ink-2)}
+.stats b{font-family:var(--font-display);font-size:2rem;font-weight:600;color:var(--ink);margin-right:6px}
+.bk{list-style:none;display:grid;gap:10px}
+.bk li{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;display:grid;grid-template-columns:64px 1fr;gap:4px 14px}
+.bk .t{font-family:var(--font-display);font-size:1.5rem;font-weight:600;line-height:1.1;color:var(--accent)}
+.bk .who{font-weight:500}
+.bk .what{color:var(--ink-2);font-size:.92rem}
+.bk .meta{grid-column:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.st{font-size:.76rem;padding:3px 10px;border-radius:99px;font-weight:500}
+.st.avisado{background:var(--accent-soft);color:var(--accent)}
+.st.pendiente{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.st.confirmado{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+.bk .ph{font-size:.88rem;color:var(--ink-2)}
+.bk .btns{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.aslots .slot.blk{background:color-mix(in srgb,var(--danger) 12%,transparent);border-color:color-mix(in srgb,var(--danger) 45%,transparent);color:var(--danger);text-decoration:none;opacity:1}
+.aslots .slot.res{opacity:1;text-decoration:none;border-style:solid;background:var(--surface-2);color:var(--ink-2);font-size:.78rem;line-height:1.2;padding:4px}
+.aslots .slot.res b{display:block;font-size:.95rem;color:var(--ink)}
+.aslots .slot{min-height:56px}
+.adm .grid2{display:grid;gap:14px}
+@media (min-width:700px){.adm .grid2{grid-template-columns:1fr 1fr}}
+.ed{list-style:none;display:grid;gap:10px}
+.ed li{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:grid;gap:10px}
+.ed .cl{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.ed .r{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.adm label{display:block;font-size:.84rem;color:var(--ink-2);margin-bottom:5px;font-weight:500}
+.hrs{list-style:none;display:grid;gap:8px}
+.hrs li{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.hrs .tt{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hrs .tt input{min-height:42px;padding:0 10px}
+.hrs .tt input:disabled{opacity:.4}
+.sw{display:flex;align-items:center;gap:8px;font-weight:500;cursor:pointer}
+.sw input{width:20px;height:20px;min-height:0;accent-color:var(--accent)}
+.photo-ed{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.photo-ed .pv{width:120px;height:80px;border-radius:12px;background:var(--hero-grad);background-size:cover;background-position:center;border:1px solid var(--line)}
+.filebtn{position:relative;overflow:hidden}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer;min-height:0}
+.danger-zone{margin-top:34px;padding-top:20px;border-top:1px solid var(--line)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+@media (max-width:420px){:root{--gutter:16px}.top .btn{display:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Inicio">
+      <span class="mono" id="mono" aria-hidden="true">A</span>
+      <b id="brandName">Negocio</b>
+    </a>
+    <div class="top-actions">
+      <a class="btn btn-primary" href="#servicios">Reservar</a>
+      <button class="icon-btn" id="adminBtn" type="button" aria-label="Panel de administración">
+        <svg class="i" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <figure class="hero-fig">
+        <div class="hero-photo">
+          <img id="heroImg" alt="" fetchpriority="high">
+          <div class="hero-shade"></div>
+          <div class="hero-copy">
+            <h1 id="heroName">Negocio</h1>
+            <p id="heroTag"></p>
+            <a class="btn btn-primary" href="#servicios">Reservar mi turno
+              <svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <figcaption class="hero-cap">
+          <span class="photo-note" id="photoNote">
+            <svg class="i" viewBox="0 0 24 24"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.8l1.4-2h4.6l1.4 2h1.8A2.5 2.5 0 0 1 20 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg>
+            Acá va la foto de su negocio
+          </span>
+          <span class="cap" id="heroCap"></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="guia" aria-labelledby="guiaT">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="guiaT">Reservá en tres pasos</h2>
+        <p class="lead">Sin llamadas ni esperas. Elegís y reservás desde el celular en menos de un minuto.</p>
+      </div>
+      <ol class="guide">
+        <li><span class="n" aria-hidden="true">1</span><div><h3>Elegí tu servicio</h3><p>Mirá la lista con precios y duración, y tocá el que querés.</p></div></li>
+        <li><span class="n" aria-hidden="true">2</span><div><h3>Elegí día y horario</h3><p>Solo ves los horarios libres. Al reservar, el tuyo queda bloqueado para vos.</p></div></li>
+        <li><span class="n" aria-hidden="true">3</span><div><h3>Te confirmamos por WhatsApp</h3><p>Te escribimos al número que dejaste. Respondés SÍ y tu turno queda confirmado.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="servicios" aria-labelledby="svcT">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="svcT">Servicios y precios</h2>
+        <p class="lead" id="svcLead"></p>
+      </div>
+      <nav class="cat-nav" id="catNav" aria-label="Categorías"></nav>
+      <div id="svcList"></div>
+    </div>
+  </section>
+
+  <section class="block" id="reservar" aria-labelledby="bookT">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="bookT">Elegí día y horario</h2>
+        <p class="lead">Los horarios tachados ya están tomados.</p>
+      </div>
+      <div class="book" id="book" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="block" id="contacto" aria-labelledby="infoT">
+    <div class="wrap info">
+      <div>
+        <h2 id="infoT">Horarios de atención</h2>
+        <ul class="hours num" id="hoursList" style="margin-top:18px"></ul>
+      </div>
+      <div class="contact">
+        <h2>Dónde estamos</h2>
+        <a class="line" id="addrLink" target="_blank" rel="noopener">
+          <svg class="i" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span id="addrTxt"></span>
+        </a>
+        <a class="line" id="igLink" target="_blank" rel="noopener">
+          <svg class="i" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+          <span id="igTxt"></span>
+        </a>
+        <a class="line" id="waLink" target="_blank" rel="noopener">
+          <svg class="i" viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c.3 2 2 4.2 4.5 5l1.3-1.3 2 .9-.4 1.6c-3.8.6-8-3.6-7.4-7.4l1.6-.4.9 2z"/></svg>
+          <span>Escribinos por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> <span id="footName"></span></span>
+    <button type="button" id="footAdmin">Panel de administración</button>
+    <span>Diseño: AyN Servicios Digitales</span>
+  </div>
+</footer>
+
+<!-- login -->
+<dialog id="loginDlg" aria-labelledby="loginT">
+  <form class="dlg" id="loginForm" method="dialog" novalidate>
+    <span class="mono" aria-hidden="true">
+      <svg class="i" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+    </span>
+    <h2 id="loginT">Panel de administración</h2>
+    <p>Ingresá la contraseña para ver los turnos, bloquear horarios y editar precios.</p>
+    <div class="field" id="pwField">
+      <label for="pw">Contraseña</label>
+      <input id="pw" type="password" inputmode="numeric" autocomplete="current-password">
+      <div class="err" id="pwErr" role="alert">Contraseña incorrecta. Probá de nuevo.</div>
+    </div>
+    <div class="acts">
+      <button type="button" class="btn btn-ghost" id="loginCancel">Cancelar</button>
+      <button type="submit" class="btn btn-primary" value="ok">Entrar</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- admin -->
+<div class="adm" id="admin" hidden role="region" aria-labelledby="admT">
+  <div class="adm-top">
+    <div class="wrap">
+      <h2 id="admT" tabindex="-1">Panel <small id="admSub"></small></h2>
+      <button class="btn btn-ghost btn-sm" type="button" id="logout">
+        <svg class="i" viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 16l-4-4 4-4M6 12h10"/></svg>
+        Salir
+      </button>
+    </div>
+    <div class="wrap">
+      <div class="tabs" role="tablist" aria-label="Secciones del panel">
+        <button class="tab" role="tab" data-tab="turnos" aria-selected="true">Turnos<span class="badge num" id="pendBadge" hidden></span></button>
+        <button class="tab" role="tab" data-tab="bloqueos" aria-selected="false">Horarios</button>
+        <button class="tab" role="tab" data-tab="servicios" aria-selected="false">Servicios y precios</button>
+        <button class="tab" role="tab" data-tab="ajustes" aria-selected="false">Ajustes</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap adm-body" id="admBody" role="tabpanel"></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const CFG = {
+ "slug": "unas-cejas",
+ "step": 60,
+ "daysAhead": 21,
+ "cc": "549",
+ "caption": "Uñas, cejas y pies",
+ "photo": "https://images.unsplash.com/photo-1457972729786-0411a3b2b626?auto=format&fit=crop&w=1800&q=80",
+ "photoAlt": "Manicura en proceso con esmalte",
+ "svcLead": "Manos, cejas y pies. Elegí tu servicio y reservá el horario que te quede cómodo.",
+ "business": {
+  "name": "Lumi Nails & Brows",
+  "tagline": "Manos prolijas, cejas perfectas y pies de spa. Tu momento, reservado en un minuto.",
+  "whatsapp": "5493510000000",
+  "instagram": "lumi.nails",
+  "address": "Bv. San Juan 850, Córdoba"
+ },
+ "hours": {
+  "0": null,
+  "1": [
+   "10:00",
+   "20:00"
+  ],
+  "2": [
+   "10:00",
+   "20:00"
+  ],
+  "3": [
+   "10:00",
+   "20:00"
+  ],
+  "4": [
+   "10:00",
+   "20:00"
+  ],
+  "5": [
+   "10:00",
+   "20:00"
+  ],
+  "6": [
+   "09:00",
+   "14:00"
+  ]
+ },
+ "categories": [
+  {
+   "id": "manos",
+   "label": "Uñas de manos",
+   "msg": "uñas"
+  },
+  {
+   "id": "cejas",
+   "label": "Cejas",
+   "msg": "cejas"
+  },
+  {
+   "id": "pies",
+   "label": "Pies",
+   "msg": "pies"
+  }
+ ],
+ "services": [
+  {
+   "id": "semi",
+   "cat": "manos",
+   "name": "Esmaltado semipermanente",
+   "desc": "Limado, cutículas y color que dura hasta 3 semanas.",
+   "price": 15000,
+   "duration": 60
+  },
+  {
+   "id": "kapping",
+   "cat": "manos",
+   "name": "Kapping en gel",
+   "desc": "Capa de gel sobre tu uña natural para fortalecerla.",
+   "price": 20000,
+   "duration": 90
+  },
+  {
+   "id": "esculpidas",
+   "cat": "manos",
+   "name": "Uñas esculpidas",
+   "desc": "Extensión en gel o acrílico con el largo y forma que quieras.",
+   "price": 28000,
+   "duration": 120
+  },
+  {
+   "id": "perfilado",
+   "cat": "cejas",
+   "name": "Perfilado y diseño",
+   "desc": "Visagismo según tu rostro, depilación con hilo o cera.",
+   "price": 9000,
+   "duration": 30
+  },
+  {
+   "id": "laminado",
+   "cat": "cejas",
+   "name": "Laminado de cejas",
+   "desc": "Cejas peinadas, con volumen y efecto prolijo por semanas.",
+   "price": 16000,
+   "duration": 60
+  },
+  {
+   "id": "pedispa",
+   "cat": "pies",
+   "name": "Pedicura spa",
+   "desc": "Baño de pies, exfoliación, durezas y masaje relajante.",
+   "price": 17000,
+   "duration": 60
+  },
+  {
+   "id": "semipies",
+   "cat": "pies",
+   "name": "Semipermanente en pies",
+   "desc": "Preparación de uñas y color semipermanente.",
+   "price": 14000,
+   "duration": 60
+  },
+  {
+   "id": "pedicompleta",
+   "cat": "pies",
+   "name": "Pedicura completa + semi",
+   "desc": "Pedicura spa con esmaltado semipermanente incluido.",
+   "price": 24000,
+   "duration": 90
+  }
+ ],
+ "demoBookings": [
+  {
+   "offset": 60,
+   "serviceId": "esculpidas",
+   "name": "Sofía Martínez",
+   "phone": "351 555 4321",
+   "status": "confirmado"
+  },
+  {
+   "offset": 180,
+   "serviceId": "laminado",
+   "name": "Martina Ruiz",
+   "phone": "351 555 6789",
+   "status": "pendiente"
+  }
+ ]
+};
+
+/* ===== helpers ===== */
+const KEY = 'turnos-demo-' + CFG.slug;
+const PASS = '123';
+const DOW = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+const DOWS = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+const MON = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const MONS = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad = n => String(n).padStart(2, '0');
+const ymd = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+const parseYmd = s => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+const toMin = t => { const [h, m] = String(t).split(':').map(Number); return h * 60 + (m || 0); };
+const toHM = m => pad(Math.floor(m / 60)) + ':' + pad(m % 60);
+const money = n => '$\u00a0' + Number(n || 0).toLocaleString('es-AR');
+const durTxt = m => { m = Number(m) || 0; const h = Math.floor(m / 60), r = m % 60; return [h ? h + ' h' : '', r ? r + ' min' : ''].filter(Boolean).join(' ') || '—'; };
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+const dateLong = s => { const d = parseYmd(s); return cap(DOW[d.getDay()]) + ' ' + d.getDate() + ' de ' + MON[d.getMonth()]; };
+const digits = s => String(s || '').replace(/\D/g, '');
+const uid = () => Math.random().toString(36).slice(2, 9) + Date.now().toString(36).slice(-4);
+const first = n => String(n || '').trim().split(/\s+/)[0];
+const ESTADO = { pendiente: 'Sin avisar', avisado: 'Esperando respuesta', confirmado: 'Confirmado' };
+const ICON = {
+  check: '<svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  clock: '<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+  cal: '<svg class="i" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>',
+  wa: '<svg class="i fill" viewBox="0 0 24 24"><path d="M12.04 2a9.93 9.93 0 0 0-8.6 14.9L2 22l5.25-1.38A9.93 9.93 0 1 0 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 1 1 6.98 3.86zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.22-.08-.39-.12-.55.12-.16.25-.63.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.66.31c-.22.25-.86.85-.86 2.07s.88 2.4 1 2.57c.13.16 1.74 2.65 4.2 3.72.59.25 1.05.4 1.4.52.6.19 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.22-.16-.47-.28z"/></svg>',
+  x: '<svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  back: '<svg class="i" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
+  img: '<svg class="i" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg>'
+};
+
+/* ===== state ===== */
+function seed() {
+  const s = {
+    v: 1,
+    settings: Object.assign({}, CFG.business, { photo: '', hours: JSON.parse(JSON.stringify(CFG.hours)) }),
+    services: CFG.services.map(x => Object.assign({}, x)),
+    bookings: [],
+    blocks: {}
+  };
+  let added = 0;
+  for (let i = 1; i < 14 && added < CFG.demoBookings.length; i++) {
+    const d = new Date(); d.setDate(d.getDate() + i);
+    const h = s.settings.hours[d.getDay()];
+    if (!h) continue;
+    const demo = CFG.demoBookings[added];
+    s.bookings.push({ id: uid(), date: ymd(d), time: toHM(toMin(h[0]) + demo.offset), serviceId: demo.serviceId, name: demo.name, phone: demo.phone, status: demo.status, created: Date.now() });
+    added++;
+  }
+  return s;
+}
+function load() {
+  try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.v === 1) return s; } catch (e) {}
+  return seed();
+}
+let S = load();
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(S)); return true; }
+  catch (e) { toast('No se pudo guardar en este navegador.'); return false; }
+}
+const svcById = id => S.services.find(x => x.id === id);
+const step = CFG.step;
+
+/* ===== agenda logic ===== */
+function slotsFor(date) {
+  const h = S.settings.hours[parseYmd(date).getDay()];
+  if (!h || !h[0] || !h[1]) return [];
+  const out = [];
+  for (let t = toMin(h[0]); t + step <= toMin(h[1]); t += step) out.push(toHM(t));
+  return out;
+}
+function busyMap(date) {
+  const m = {};
+  S.bookings.forEach(b => {
+    if (b.date !== date || b.status === 'cancelado') return;
+    const sv = svcById(b.serviceId);
+    const n = Math.max(1, Math.ceil(((sv && sv.duration) || step) / step));
+    for (let i = 0; i < n; i++) m[toHM(toMin(b.time) + i * step)] = { type: 'booking', b, start: i === 0 };
+  });
+  (S.blocks[date] || []).forEach(t => { if (!m[t]) m[t] = { type: 'block' }; });
+  return m;
+}
+function canBook(date, time, sv, busy, all) {
+  all = all || slotsFor(date); busy = busy || busyMap(date);
+  if (date === ymd(new Date())) {
+    const now = new Date();
+    if (toMin(time) <= now.getHours() * 60 + now.getMinutes() + 30) return false;
+  }
+  const n = Math.max(1, Math.ceil(((sv && sv.duration) || step) / step));
+  for (let i = 0; i < n; i++) {
+    const t = toHM(toMin(time) + i * step);
+    if (!all.includes(t) || busy[t]) return false;
+  }
+  return true;
+}
+function upcomingDays(n) {
+  const out = [];
+  for (let i = 0; i < n; i++) { const d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() + i); out.push(ymd(d)); }
+  return out;
+}
+function dayHasRoom(date, sv) {
+  const all = slotsFor(date), busy = busyMap(date);
+  return all.some(t => canBook(date, t, sv, busy, all));
+}
+
+/* ===== public render ===== */
+const sel = { svc: null, date: null, time: null, done: null };
+
+function renderBrand() {
+  const st = S.settings;
+  document.title = st.name + ' · Turnos online';
+  $('#brandName').textContent = st.name;
+  $('#mono').textContent = (st.name.trim()[0] || 'A').toUpperCase();
+  $('#heroName').textContent = st.name;
+  $('#heroTag').textContent = st.tagline;
+  $('#heroCap').textContent = CFG.caption;
+  $('#footName').textContent = st.name;
+  $('#year').textContent = new Date().getFullYear();
+  const img = $('#heroImg');
+  const src = st.photo || CFG.photo;
+  if (img.getAttribute('src') !== src) { img.style.opacity = ''; img.src = src; }
+  img.alt = st.photo ? 'Foto de ' + st.name : CFG.photoAlt;
+  $('#photoNote').hidden = !!st.photo;
+  $('#svcLead').textContent = CFG.svcLead;
+  $('#addrTxt').textContent = st.address;
+  $('#addrLink').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(st.address);
+  $('#igTxt').textContent = '@' + st.instagram.replace(/^@/, '');
+  $('#igLink').href = 'https://instagram.com/' + st.instagram.replace(/^@/, '');
+  $('#waLink').href = 'https://wa.me/' + digits(st.whatsapp);
+  const today = new Date().getDay();
+  const order = [1, 2, 3, 4, 5, 6, 0];
+  $('#hoursList').innerHTML = order.map(d => {
+    const h = st.hours[d];
+    return '<li class="' + (d === today ? 'today' : '') + '"><span>' + cap(DOW[d]) + (d === today ? ' · hoy' : '') + '</span>' +
+      (h ? '<span>' + h[0] + ' a ' + h[1] + ' hs</span>' : '<span class="closed">Cerrado</span>') + '</li>';
+  }).join('');
+}
+
+function renderServices() {
+  const cats = CFG.categories;
+  const nav = $('#catNav');
+  nav.hidden = cats.length < 2;
+  nav.innerHTML = cats.map(c => '<a class="chip" href="#cat-' + c.id + '">' + esc(c.label) + '</a>').join('');
+  $('#svcList').innerHTML = cats.map(c => {
+    const list = S.services.filter(s => s.cat === c.id);
+    return '<div class="cat" id="cat-' + c.id + '">' +
+      (cats.length > 1 ? '<h3>' + esc(c.label) + ' <small>' + list.length + ' servicios</small></h3>' : '') +
+      '<ul class="svc-list">' + list.map(s =>
+        '<li><button type="button" class="svc" data-svc="' + s.id + '" aria-pressed="' + (sel.svc === s.id) + '">' +
+          '<span class="nm">' + esc(s.name) + '<span class="tick" aria-hidden="true">' + ICON.check + '</span></span>' +
+          '<span class="ds">' + esc(s.desc) + '</span>' +
+          '<span class="pr"><b class="num">' + money(s.price) + '</b><span>' + ICON.clock + durTxt(s.duration) + '</span></span>' +
+        '</button></li>').join('') +
+      '</ul></div>';
+  }).join('');
+}
+
+function renderBook() {
+  const box = $('#book');
+  if (sel.done) return renderDone();
+  const sv = svcById(sel.svc);
+  if (!sv) {
+    box.innerHTML = '<div class="empty">' + ICON.cal + '<p>Primero elegí un servicio de la lista y acá te mostramos los horarios libres.</p><a class="btn btn-ghost" href="#servicios">Ver servicios</a></div>';
+    return;
+  }
+  const days = upcomingDays(CFG.daysAhead);
+  if (!sel.date || !days.includes(sel.date) || !dayHasRoom(sel.date, sv)) {
+    sel.date = days.find(d => dayHasRoom(d, sv)) || null;
+    sel.time = null;
+  }
+  const dayBtns = days.map(d => {
+    const dt = parseYmd(d);
+    const open = slotsFor(d).length > 0;
+    const room = open && dayHasRoom(d, sv);
+    return '<button type="button" class="day" data-day="' + d + '" aria-pressed="' + (sel.date === d) + '"' + (room ? '' : ' disabled') +
+      ' aria-label="' + dateLong(d) + (room ? '' : open ? ', completo' : ', cerrado') + '">' +
+      '<small>' + DOWS[dt.getDay()] + '</small><b class="num">' + dt.getDate() + '</b>' +
+      '<small' + (room ? '' : ' class="full"') + '>' + (room ? MONS[dt.getMonth()] : open ? 'completo' : 'cerrado') + '</small></button>';
+  }).join('');
+
+  let slotHtml = '<p class="empty" style="padding:8px 0 20px">No quedan horarios en los próximos días. Escribinos por WhatsApp y te buscamos un lugar.</p>';
+  if (sel.date) {
+    const all = slotsFor(sel.date), busy = busyMap(sel.date);
+    slotHtml = '<div class="slots num" role="group" aria-label="Horarios del ' + dateLong(sel.date) + '">' + all.map(t => {
+      const ok = canBook(sel.date, t, sv, busy, all);
+      return '<button type="button" class="slot" data-time="' + t + '" aria-pressed="' + (sel.time === t) + '"' + (ok ? '' : ' disabled aria-label="' + t + ', no disponible"') + '>' + t + '</button>';
+    }).join('') + '</div>' +
+    '<div class="legend"><span><i class="on"></i>Tu elección</span><span><i></i>Libre</span><span><i class="off"></i>Ocupado</span></div>';
+  }
+
+  box.innerHTML =
+    '<div class="pick"><div><small>Servicio elegido</small><b>' + esc(sv.name) + '</b> · <span class="num">' + money(sv.price) + '</span> · ' + durTxt(sv.duration) + '</div><a href="#servicios">Cambiar</a></div>' +
+    '<p class="step-lbl">Día <span>Próximas ' + Math.round(CFG.daysAhead / 7) + ' semanas</span></p>' +
+    '<div class="days">' + dayBtns + '</div>' +
+    (sel.date ? '<p class="step-lbl">Horario <span>' + dateLong(sel.date) + '</span></p>' : '') +
+    slotHtml +
+    '<form class="form" id="bookForm" novalidate>' +
+      '<div class="row">' +
+        '<div class="field" id="fName"><label for="cName">Tu nombre</label><input id="cName" autocomplete="name" placeholder="Ej: Valentina López"><div class="err">Escribí tu nombre para que sepamos quién viene.</div></div>' +
+        '<div class="field" id="fPhone"><label for="cPhone">Tu WhatsApp</label><input id="cPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej: 351 555 1234"><div class="help">Te escribimos a este número para confirmar tu turno.</div><div class="err">Revisá el número: necesitamos al menos 8 dígitos.</div></div>' +
+      '</div>' +
+      '<button class="btn btn-primary" type="submit" id="bookBtn"' + (sel.time ? '' : ' disabled') + '>' + (sel.time ? ICON.check + 'Confirmar turno · ' + dateShort(sel.date) + ', ' + sel.time + ' hs' : 'Elegí un horario para continuar') + '</button>' +
+      '<p class="fine">Al confirmar, el horario queda reservado para vos. Te escribimos por WhatsApp para confirmarlo.</p>' +
+    '</form>';
+  const n = sessionStorage.getItem('cliName'), p = sessionStorage.getItem('cliPhone');
+  if (n) $('#cName').value = n;
+  if (p) $('#cPhone').value = p;
+  const selDay = box.querySelector('.day[aria-pressed="true"]');
+  if (selDay) selDay.scrollIntoView({ block: 'nearest', inline: 'center' });
+}
+
+function horaTxt(t) {
+  // "a las 9 de la mañana", "a la 1 de la tarde", "a las 12:30 del mediodía"
+  const [h, m] = t.split(':').map(Number);
+  const h12 = h % 12 || 12;
+  const part = h === 12 ? 'del mediodía' : h < 12 ? 'de la mañana' : h < 20 ? 'de la tarde' : 'de la noche';
+  return (h12 === 1 ? 'a la ' : 'a las ') + h12 + (m ? ':' + pad(m) : '') + ' ' + part;
+}
+function turnoDe(sv) {
+  const c = CFG.categories.find(x => x.id === sv.cat);
+  const nm = sv.name.charAt(0).toLowerCase() + sv.name.slice(1);
+  return c && c.msg ? c.msg + ' (' + nm + ')' : nm;
+}
+function clientMessage(b) {
+  const sv = svcById(b.serviceId) || { name: 'tu servicio', cat: '' };
+  const d = parseYmd(b.date);
+  return 'Hola ' + first(b.name) + '! Te hablo de ' + S.settings.name + ' para confirmar tu turno de ' + turnoDe(sv) +
+    ' ' + horaTxt(b.time) + ' el ' + DOW[d.getDay()] + ' ' + d.getDate() + ' de ' + MON[d.getMonth()] + '.\n' +
+    'Respondé SÍ para confirmar.';
+}
+const dateShort = s => { const d = parseYmd(s); return DOWS[d.getDay()] + ' ' + d.getDate() + ' ' + MONS[d.getMonth()]; };
+function clientPhone(p) {
+  let d = digits(p);
+  if (d.startsWith(CFG.cc.slice(0, 2))) return d;
+  d = d.replace(/^0/, '');
+  return CFG.cc + d;
+}
+
+function renderDone() {
+  const b = S.bookings.find(x => x.id === sel.done);
+  const sv = b && svcById(b.serviceId);
+  if (!b || !sv) { sel.done = null; return renderBook(); }
+  $('#book').innerHTML =
+    '<div class="done">' +
+      '<div class="seal">' + ICON.check + '</div>' +
+      '<h3>¡Listo, ' + esc(first(b.name)) + '! Tu turno quedó reservado</h3>' +
+      '<p>Te vamos a escribir por WhatsApp al <b class="num">' + esc(b.phone) + '</b> para confirmarlo. Solo respondés SÍ.</p>' +
+      '<dl class="sum num"><dt>Servicio</dt><dd>' + esc(sv.name) + '</dd><dt>Día</dt><dd>' + dateLong(b.date) + '</dd><dt>Hora</dt><dd>' + b.time + ' hs</dd><dt>Precio</dt><dd>' + money(sv.price) + '</dd><dt>Dirección</dt><dd>' + esc(S.settings.address) + '</dd></dl>' +
+      '<div class="acts">' +
+        '<button class="btn btn-ghost" type="button" id="again">Reservar otro turno</button>' +
+      '</div>' +
+    '</div>';
+}
+
+function renderPublic() { renderBrand(); renderServices(); renderBook(); }
+
+/* ===== public events ===== */
+document.addEventListener('click', e => {
+  const s = e.target.closest('[data-svc]');
+  if (s && !s.closest('#admin')) {
+    sel.svc = s.dataset.svc; sel.time = null; sel.done = null;
+    renderServices(); renderBook();
+    setTimeout(() => $('#reservar').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }), 120);
+    return;
+  }
+  const d = e.target.closest('#book [data-day]');
+  if (d) { sel.date = d.dataset.day; sel.time = null; keepForm(); renderBook(); return; }
+  const t = e.target.closest('#book [data-time]');
+  if (t) { sel.time = t.dataset.time; keepForm(); renderBook(); const btn = $('#bookBtn'); if (btn) btn.scrollIntoView({ block: 'nearest' }); return; }
+  if (e.target.closest('#again')) { sel.done = null; sel.time = null; renderBook(); $('#servicios').scrollIntoView(); }
+});
+function keepForm() {
+  const n = $('#cName'), p = $('#cPhone');
+  if (n) sessionStorage.setItem('cliName', n.value);
+  if (p) sessionStorage.setItem('cliPhone', p.value);
+}
+document.addEventListener('submit', e => {
+  if (e.target.id !== 'bookForm') return;
+  e.preventDefault();
+  const name = $('#cName').value.trim(), phone = $('#cPhone').value.trim();
+  const okName = name.length >= 2, okPhone = digits(phone).length >= 8;
+  $('#fName').classList.toggle('invalid', !okName);
+  $('#fPhone').classList.toggle('invalid', !okPhone);
+  if (!okName) return $('#cName').focus();
+  if (!okPhone) return $('#cPhone').focus();
+  const sv = svcById(sel.svc);
+  if (!sel.time || !canBook(sel.date, sel.time, sv)) { toast('Ese horario se acaba de ocupar. Elegí otro.'); sel.time = null; return renderBook(); }
+  const b = { id: uid(), date: sel.date, time: sel.time, serviceId: sv.id, name, phone, status: 'pendiente', created: Date.now() };
+  S.bookings.push(b); save();
+  sessionStorage.setItem('cliName', name); sessionStorage.setItem('cliPhone', phone);
+  sel.done = b.id; renderBook();
+  $('#reservar').scrollIntoView({ block: 'start' });
+});
+$('#heroImg').addEventListener('error', e => { e.target.style.opacity = 0; });
+
+/* ===== toast ===== */
+let toastT;
+function toast(msg) {
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* ===== admin ===== */
+const dlg = $('#loginDlg');
+let tab = 'turnos', admDate = null;
+function openAdmin() {
+  if (sessionStorage.getItem(KEY + '-adm') === '1') return showAdmin();
+  $('#pw').value = ''; $('#pwField').classList.remove('invalid');
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+  setTimeout(() => $('#pw').focus(), 30);
+}
+$('#adminBtn').addEventListener('click', openAdmin);
+$('#footAdmin').addEventListener('click', openAdmin);
+$('#loginCancel').addEventListener('click', () => dlg.close());
+$('#loginForm').addEventListener('submit', e => {
+  e.preventDefault();
+  if ($('#pw').value === PASS) {
+    sessionStorage.setItem(KEY + '-adm', '1'); dlg.close(); showAdmin();
+  } else {
+    $('#pwField').classList.add('invalid'); $('#pw').select();
+  }
+});
+$('#pw').addEventListener('input', () => $('#pwField').classList.remove('invalid'));
+function showAdmin() {
+  S = load();
+  $('#admin').hidden = false; document.body.classList.add('lock');
+  renderAdmin(); $('#admT').focus();
+}
+function hideAdmin() {
+  $('#admin').hidden = true; document.body.classList.remove('lock');
+  renderPublic();
+}
+$('#logout').addEventListener('click', () => { sessionStorage.removeItem(KEY + '-adm'); hideAdmin(); toast('Saliste del panel.'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#admin').hidden && !dlg.open) hideAdmin(); });
+document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => { tab = b.dataset.tab; renderAdmin(); }));
+
+function renderAdmin() {
+  $('#admSub').textContent = S.settings.name;
+  document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
+  const today = ymd(new Date());
+  const pend = S.bookings.filter(b => b.status === 'pendiente' && b.date >= today).length; // sin avisar
+  $('#pendBadge').hidden = !pend; $('#pendBadge').textContent = pend;
+  ({ turnos: admTurnos, bloqueos: admBloqueos, servicios: admServicios, ajustes: admAjustes })[tab]();
+}
+
+function admTurnos() {
+  const today = ymd(new Date());
+  const list = S.bookings.filter(b => b.status !== 'cancelado' && b.date >= today)
+    .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  const pend = list.filter(b => b.status !== 'confirmado').length;
+  const ingresos = list.reduce((t, b) => t + ((svcById(b.serviceId) || {}).price || 0), 0);
+  let html = '<div class="stats num"><span><b>' + list.length + '</b>turnos próximos</span><span><b>' + pend + '</b>sin confirmar</span><span><b>' + money(ingresos) + '</b>en agenda</span></div>' +
+    '<p class="note">Tocá el botón verde para mandarle el WhatsApp a la clienta. Cuando responda SÍ, marcá el turno como confirmado.</p>' +
+    '<p class="note">Versión de muestra: los turnos, bloqueos y precios se guardan solo en este celular o compu.</p>';
+  if (!list.length) {
+    html += '<div class="empty">' + ICON.cal + '<p>Todavía no hay turnos. Cuando una clienta reserve desde la app, aparece acá.</p></div>';
+  } else {
+    let cur = '';
+    list.forEach(b => {
+      if (b.date !== cur) { if (cur) html += '</ul>'; cur = b.date; html += '<h3>' + dateLong(b.date) + (b.date === today ? ' · hoy' : '') + '</h3><ul class="bk">'; }
+      const sv = svcById(b.serviceId) || { name: 'Servicio eliminado', price: 0, duration: 0 };
+      html += '<li><span class="t num">' + b.time + '</span><div><div class="who">' + esc(b.name) + '</div><div class="what">' + esc(sv.name) + ' · ' + durTxt(sv.duration) + ' · <span class="num">' + money(sv.price) + '</span></div></div>' +
+        '<div class="meta"><span class="st ' + b.status + '">' + (ESTADO[b.status] || cap(b.status)) + '</span><a class="ph num" href="tel:' + digits(b.phone) + '">' + esc(b.phone) + '</a></div>' +
+        '<div class="btns">' +
+          '<a class="btn btn-wa btn-sm" target="_blank" rel="noopener" data-wa="' + b.id + '" href="https://wa.me/' + clientPhone(b.phone) + '?text=' + encodeURIComponent(clientMessage(b)) + '">' + ICON.wa + (b.status === 'pendiente' ? 'Enviar WhatsApp de confirmación' : 'Volver a enviar WhatsApp') + '</a>' +
+          (b.status !== 'confirmado' ? '<button class="btn btn-ghost btn-sm" type="button" data-ok="' + b.id + '">' + ICON.check + 'Respondió SÍ: confirmar</button>' : '') +
+          '<button class="btn btn-danger btn-sm" data-cancel="' + b.id + '">' + ICON.x + 'Cancelar y liberar horario</button>' +
+        '</div></li>';
+    });
+    html += '</ul>';
+  }
+  $('#admBody').innerHTML = html;
+}
+
+function admBloqueos() {
+  const days = upcomingDays(CFG.daysAhead);
+  if (!admDate || !days.includes(admDate)) admDate = days.find(d => slotsFor(d).length) || days[0];
+  const all = slotsFor(admDate), busy = busyMap(admDate);
+  let html = '<p class="note">Tocá un horario para bloquearlo o liberarlo (feriados, trámites, descanso). Los horarios que reservan las clientas se bloquean solos.</p>' +
+    '<div class="days">' + days.map(d => {
+      const dt = parseYmd(d), open = slotsFor(d).length > 0;
+      const nb = (S.blocks[d] || []).length;
+      return '<button type="button" class="day" data-aday="' + d + '" aria-pressed="' + (admDate === d) + '"' + (open ? '' : ' disabled') + '><small>' + DOWS[dt.getDay()] + '</small><b class="num">' + dt.getDate() + '</b><small' + (open ? '' : ' class="full"') + '>' + (open ? (nb ? nb + ' bloq.' : MONS[dt.getMonth()]) : 'cerrado') + '</small></button>';
+    }).join('') + '</div>';
+  if (all.length) {
+    html += '<p class="step-lbl">' + dateLong(admDate) + '</p><div class="slots aslots num">' + all.map(t => {
+      const b = busy[t];
+      if (b && b.type === 'booking') return '<button type="button" class="slot res" disabled title="Reservado"><b>' + t + '</b>' + esc(first(b.b.name)) + '</button>';
+      if (b && b.type === 'block') return '<button type="button" class="slot blk" data-toggle="' + t + '" aria-label="' + t + ', bloqueado. Tocar para liberar">' + t + '</button>';
+      return '<button type="button" class="slot" data-toggle="' + t + '" aria-label="' + t + ', libre. Tocar para bloquear">' + t + '</button>';
+    }).join('') + '</div>' +
+    '<div class="legend"><span><i></i>Libre</span><span><i style="background:color-mix(in srgb,var(--danger) 25%,transparent);border-color:var(--danger)"></i>Bloqueado por vos</span><span><i style="background:var(--surface-2)"></i>Reservado</span></div>' +
+    '<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-ghost btn-sm" data-blockday>Bloquear día completo</button><button class="btn btn-ghost btn-sm" data-freeday>Liberar todo el día</button></div>';
+  }
+  $('#admBody').innerHTML = html;
+}
+
+function admServicios() {
+  $('#admBody').innerHTML = '<p class="note">Los cambios se guardan solos y se ven al instante en la app.</p>' +
+    CFG.categories.map(c => (CFG.categories.length > 1 ? '<h3>' + esc(c.label) + '</h3>' : '') +
+      '<ul class="ed">' + S.services.filter(s => s.cat === c.id).map(s =>
+        '<li data-ed="' + s.id + '">' +
+          '<div><label for="n-' + s.id + '">Nombre</label><input id="n-' + s.id + '" data-f="name" value="' + esc(s.name) + '"></div>' +
+          '<div><label for="d-' + s.id + '">Descripción</label><input id="d-' + s.id + '" data-f="desc" value="' + esc(s.desc) + '"></div>' +
+          '<div class="r"><div><label for="p-' + s.id + '">Precio ($)</label><input id="p-' + s.id + '" class="num" data-f="price" type="number" inputmode="numeric" min="0" step="500" value="' + s.price + '"></div>' +
+          '<div><label for="m-' + s.id + '">Duración</label><select id="m-' + s.id + '" data-f="duration">' + durOptions(s.duration) + '</select></div></div>' +
+        '</li>').join('') + '</ul>').join('');
+}
+function durOptions(v) {
+  let o = '';
+  for (let m = 30; m <= 360; m += 30) o += '<option value="' + m + '"' + (m === Number(v) ? ' selected' : '') + '>' + durTxt(m) + '</option>';
+  return o;
+}
+
+function admAjustes() {
+  const st = S.settings;
+  const order = [1, 2, 3, 4, 5, 6, 0];
+  $('#admBody').innerHTML =
+    '<h3>Datos del negocio</h3>' +
+    '<div class="grid2">' +
+      field('name', 'Nombre del negocio', st.name) +
+      field('tagline', 'Frase de portada', st.tagline) +
+      field('whatsapp', 'WhatsApp del negocio (con código de país)', st.whatsapp, 'tel') +
+      field('instagram', 'Instagram', st.instagram) +
+      field('address', 'Dirección', st.address) +
+    '</div>' +
+    '<h3>Foto de portada</h3>' +
+    '<div class="photo-ed"><div class="pv" id="pv" style="' + (st.photo ? 'background-image:url(' + st.photo + ')' : 'background-image:url(' + CFG.photo + ')') + '"></div>' +
+      '<label class="btn btn-ghost btn-sm filebtn">' + ICON.img + 'Subir foto del negocio<input type="file" accept="image/*" id="photoIn"></label>' +
+      (st.photo ? '<button class="btn btn-danger btn-sm" id="photoDel">Quitar foto</button>' : '') +
+    '</div>' +
+    '<h3>Días y horarios de atención</h3>' +
+    '<p class="note">Los turnos se ofrecen cada ' + durTxt(step) + ' dentro de este horario.</p>' +
+    '<ul class="hrs">' + order.map(d => {
+      const h = st.hours[d];
+      return '<li><label class="sw"><input type="checkbox" data-open="' + d + '"' + (h ? ' checked' : '') + '>' + cap(DOW[d]) + '</label>' +
+        '<div class="tt"><input type="time" step="1800" aria-label="Abre ' + DOW[d] + '" data-h="' + d + '" data-k="0" value="' + (h ? h[0] : '09:00') + '"' + (h ? '' : ' disabled') + '>' +
+        '<input type="time" step="1800" aria-label="Cierra ' + DOW[d] + '" data-h="' + d + '" data-k="1" value="' + (h ? h[1] : '18:00') + '"' + (h ? '' : ' disabled') + '></div></li>';
+    }).join('') + '</ul>' +
+    '<div class="danger-zone"><h3>Demo</h3><p class="note">Borra los turnos y cambios y vuelve a los datos de ejemplo.</p><button class="btn btn-danger btn-sm" id="resetDemo">Restablecer demo</button></div>';
+}
+function field(k, label, v, type) {
+  return '<div><label for="s-' + k + '">' + label + '</label><input id="s-' + k + '" data-s="' + k + '"' + (type ? ' type="' + type + '"' : '') + ' value="' + esc(v) + '"></div>';
+}
+
+/* admin events */
+$('#admBody').addEventListener('click', e => {
+  const w = e.target.closest('[data-wa]');
+  if (w) {
+    // el link abre WhatsApp con el mensaje; el turno pasa a "esperando respuesta"
+    const b = S.bookings.find(x => x.id === w.dataset.wa);
+    if (b.status === 'pendiente') { b.status = 'avisado'; save(); setTimeout(renderAdmin, 60); }
+    return;
+  }
+  const ok = e.target.closest('[data-ok]');
+  if (ok) {
+    const b = S.bookings.find(x => x.id === ok.dataset.ok);
+    b.status = 'confirmado'; save(); renderAdmin(); toast('Turno de ' + first(b.name) + ' confirmado.');
+    return;
+  }
+  const x = e.target.closest('[data-cancel]');
+  if (x) {
+    const b = S.bookings.find(y => y.id === x.dataset.cancel);
+    if (!confirm('¿Cancelar el turno de ' + b.name + ' (' + b.time + ' hs)? El horario vuelve a quedar libre.')) return;
+    b.status = 'cancelado'; save(); renderAdmin(); toast('Turno cancelado. Horario liberado.');
+    return;
+  }
+  const d = e.target.closest('[data-aday]');
+  if (d) { admDate = d.dataset.aday; renderAdmin(); return; }
+  const t = e.target.closest('[data-toggle]');
+  if (t) {
+    const arr = S.blocks[admDate] = S.blocks[admDate] || [];
+    const i = arr.indexOf(t.dataset.toggle);
+    if (i >= 0) arr.splice(i, 1); else arr.push(t.dataset.toggle);
+    if (!arr.length) delete S.blocks[admDate];
+    save(); renderAdmin(); return;
+  }
+  if (e.target.closest('[data-blockday]')) {
+    const busy = busyMap(admDate);
+    S.blocks[admDate] = slotsFor(admDate).filter(t => !busy[t] || busy[t].type === 'block');
+    save(); renderAdmin(); toast('Día bloqueado.'); return;
+  }
+  if (e.target.closest('[data-freeday]')) { delete S.blocks[admDate]; save(); renderAdmin(); toast('Día liberado.'); return; }
+  if (e.target.closest('#photoDel')) { S.settings.photo = ''; save(); renderAdmin(); renderBrand(); return; }
+  if (e.target.closest('#resetDemo')) {
+    if (!confirm('¿Restablecer la demo? Se borran turnos, bloqueos y cambios.')) return;
+    try { localStorage.removeItem(KEY); } catch (err) {}
+    S = seed(); save(); sel.svc = null; sel.done = null; renderAdmin(); renderPublic(); toast('Demo restablecida.');
+  }
+});
+$('#admBody').addEventListener('input', e => {
+  const ed = e.target.closest('[data-ed]');
+  if (ed && e.target.dataset.f) {
+    const s = svcById(ed.dataset.ed), f = e.target.dataset.f;
+    s[f] = (f === 'price' || f === 'duration') ? Number(e.target.value) || 0 : e.target.value;
+    save(); return;
+  }
+  if (e.target.dataset.s) { S.settings[e.target.dataset.s] = e.target.value; save(); $('#admSub').textContent = S.settings.name; return; }
+  if (e.target.dataset.h !== undefined && e.target.dataset.k !== undefined) {
+    const d = e.target.dataset.h, h = S.settings.hours[d];
+    if (h) { h[+e.target.dataset.k] = e.target.value; save(); }
+  }
+});
+$('#admBody').addEventListener('change', e => {
+  if (e.target.dataset.open !== undefined) {
+    const d = e.target.dataset.open;
+    S.settings.hours[d] = e.target.checked ? (CFG.hours[d] || ['09:00', '18:00']).slice() : null;
+    save(); renderAdmin(); return;
+  }
+  if (e.target.id === 'photoIn' && e.target.files[0]) {
+    readPhoto(e.target.files[0]).then(url => {
+      const prev = S.settings.photo; S.settings.photo = url;
+      if (!save()) { S.settings.photo = prev; return; }
+      renderAdmin(); renderBrand(); toast('Foto actualizada.');
+    }).catch(() => toast('No se pudo leer esa imagen. Probá con otra.'));
+  }
+});
+function readPhoto(file) {
+  return new Promise((res, rej) => {
+    const fr = new FileReader();
+    fr.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const sc = Math.min(1, 1600 / img.width);
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * sc); c.height = Math.round(img.height * sc);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        res(c.toDataURL('image/jpeg', 0.8));
+      };
+      img.onerror = rej; img.src = fr.result;
+    };
+    fr.onerror = rej; fr.readAsDataURL(file);
+  });
+}
+
+/* ===== start ===== */
+renderPublic();
+if (location.hash === '#admin') openAdmin();
+</script>
+</body>
+</html>
